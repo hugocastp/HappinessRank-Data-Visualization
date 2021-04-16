@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>INICIO</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/ddd161475f.js" crossorigin="anonymous"></script>
+ 
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<style>
+* {
+  box-sizing: border-box;
+}
+#chartdiv {
+  max-width: 100%;
+  height: 600px;
+  background-color:#fbebdb;
+}
+#chartdiv2 {
+  width: 100%;
+  height: 500px;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+.header {
+  background: url('fondo.jpg');
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+   
+  background-size: 1450px;
+  background-position-y: -30px;
+  background-position-x: -120px;
+}
+h2 { color: white; }
+
+/* Container for flexboxes */
+.row {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Create three unequal columns that sits next to each other */
+.column {
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Left and right column */
+.column.side {
+   -webkit-flex: 1;
+   -ms-flex: 1;
+   flex: 1;
+}
+
+/* Middle column */
+.column.middle {
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+}
+
+li {
+            display: inline;
+            background-color: #4f4f4c;
+            font-size: 24px;
+            padding: 14px 16px;
+        }
+
+        li a {
+            text-decoration: none;
+            color: white;
+            padding: 14px 16px;
+
+        }
+
+        .contenedor {
+            display: flex;
+            width: 100%;
+            background-color: #4f4f4c;
+            font-family: Arial, sans-serif;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .row {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+
+<div class="header">
+  <h2>World Happiness Statistics</h2>
+</div>
+<div class="contenedor">
+  <ul>
+    <li> <a href="worldHappiness.html"> <i class="fas fa-home"></i> Mapas </a> </li>
+      <li> <a href="graphics.html"> Gráficas </a> </li>
+      
+  </ul>
+</div>
+<div class="row">
+ <div class="column middle">
+<div> <h3>Happiness score based on answers to the main life evaluation question asked in the poll.</h3></div>
+  
+
+<!-- Chart code -->
+<script>
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+// Create chart instance
+var chart = am4core.create("chartdiv", am4charts.XYChart);
+var chart2 = am4core.create("chartdiv2", am4charts.PieChart);
+// Add data
+chart.data =
+
+ [{"country":"AF",
+"score":3.2030000000000003
+},{"country":"AL",
+"score":4.718999999999999
+},{"country":"DZ",
+"score":5.211
+},{"country":"AR",
+"score":6.086
+},{"country":"AM",
+"score":4.559
+},{"country":"AU",
+"score":7.228
+},{"country":"AT",
+"score":7.246
+},{"country":"AZ",
+"score":5.207999999999999
+},{"country":"BH",
+"score":6.199
+},{"country":"BD",
+"score":4.456
+},{"country":"BY",
+"score":5.3229999999999995
+},{"country":"BZ",
+"score":6.922999999999999
+},{"country":"BJ",
+"score":4.883
+},{"country":"BT",
+"score":5.082
+},{"country":"BO",
+"score":5.779
+},{"country":"BA",
+"score":5.386
+},{"country":"BW",
+"score":3.488
+},{"country":"BR",
+"score":6.3
+},{"country":"BG",
+"score":5.011
+},{"country":"BF",
+"score":4.587
+},{"country":"BI",
+"score":3.775
+},{"country":"KH",
+"score":4.7
+},{"country":"CM",
+"score":5.044
+},{"country":"CA",
+"score":7.278
+},{"country":"CF",
+"score":3.083
+},{"country":"TD",
+"score":4.35
+},{"country":"CL",
+"score":6.444
+},{"country":"CN",
+"score":5.191
+},{"country":"CO",
+"score":6.125
+},{"country":"KM",
+"score":3.9730000000000003
+},{"country":"CG",
+"score":4.812
+},{"country":"CD",
+"score":4.418
+},{"country":"CR",
+"score":7.167000000000001
+},{"country":"HR",
+"score":5.432
+},{"country":"CY",
+"score":6.046
+},{"country":"CZ",
+"score":6.852
+},{"country":"DK",
+"score":7.6
+},{"country":"DO",
+"score":5.425
+},{"country":"EC",
+"score":6.028
+},{"country":"EG",
+"score":4.166
+},{"country":"SV",
+"score":6.252999999999999
+},{"country":"EE",
+"score":5.893
+},{"country":"ET",
+"score":4.2860000000000005
+},{"country":"FI",
+"score":7.769
+},{"country":"FR",
+"score":6.5920000000000005
+},{"country":"GA",
+"score":4.7989999999999995
+},{"country":"GM",
+"score":4.516
+},{"country":"GE",
+"score":4.519
+},{"country":"DE",
+"score":6.985
+},{"country":"GH",
+"score":4.996
+},{"country":"GR",
+"score":5.287000000000001
+},{"country":"GT",
+"score":6.436
+},{"country":"GN",
+"score":4.534
+},{"country":"HT",
+"score":3.597
+},{"country":"HN",
+"score":5.86
+},{"country":"HK",
+"score":5.43
+},{"country":"HU",
+"score":5.757999999999999
+},{"country":"IS",
+"score":7.494
+},{"country":"IN",
+"score":4.015
+},{"country":"ID",
+"score":5.192
+},{"country":"IR",
+"score":4.548
+},{"country":"IQ",
+"score":4.437
+},{"country":"IE",
+"score":7.021
+},{"country":"IL",
+"score":7.138999999999999
+},{"country":"IT",
+"score":6.223
+},{"country":"CI",
+"score":4.944
+},{"country":"JM",
+"score":5.89
+},{"country":"JP",
+"score":5.886
+},{"country":"JO",
+"score":4.906000000000001
+},{"country":"KZ",
+"score":5.809
+},{"country":"KE",
+"score":4.5089999999999995
+},{"country":"XK",
+"score":6.1
+},{"country":"KW",
+"score":6.021
+},{"country":"KG",
+"score":5.261
+},{"country":"LA",
+"score":4.796
+},{"country":"LV",
+"score":5.94
+},{"country":"LB",
+"score":5.197
+},{"country":"LS",
+"score":3.802
+},{"country":"LR",
+"score":3.975
+},{"country":"LY",
+"score":5.525
+},{"country":"LT",
+"score":6.149
+},{"country":"LU",
+"score":7.09
+},{"country":"MG",
+"score":3.9330000000000003
+},{"country":"MW",
+"score":3.41
+},{"country":"MY",
+"score":5.3389999999999995
+},{"country":"ML",
+"score":4.39
+},{"country":"MT",
+"score":6.726
+},{"country":"MR",
+"score":4.49
+},{"country":"MU",
+"score":5.888
+},{"country":"MX",
+"score":6.595
+},{"country":"MD",
+"score":5.529
+},{"country":"MN",
+"score":5.285
+},{"country":"ME",
+"score":5.523
+},{"country":"MA",
+"score":5.207999999999999
+},{"country":"MZ",
+"score":4.466
+},{"country":"MM",
+"score":4.36
+},{"country":"nan",
+"score":4.638999999999999
+},{"country":"NP",
+"score":4.913
+},{"country":"NL",
+"score":7.4879999999999995
+},{"country":"NZ",
+"score":7.307
+},{"country":"NI",
+"score":6.105
+},{"country":"NE",
+"score":4.628
+},{"country":"NG",
+"score":5.265
+},{"country":"MK",
+"score":5.274
+},{"country":"CY",
+"score":5.718
+},{"country":"NO",
+"score":7.553999999999999
+},{"country":"PK",
+"score":5.653
+},{"country":"PS",
+"score":4.696000000000001
+},{"country":"PA",
+"score":6.321000000000001
+},{"country":"PY",
+"score":5.742999999999999
+},{"country":"PE",
+"score":5.697
+},{"country":"PH",
+"score":5.631
+},{"country":"PL",
+"score":6.182
+},{"country":"PT",
+"score":5.693
+},{"country":"QA",
+"score":6.374
+},{"country":"RO",
+"score":6.07
+},{"country":"RU",
+"score":5.648
+},{"country":"RW",
+"score":3.3339999999999996
+},{"country":"SA",
+"score":6.375
+},{"country":"SN",
+"score":4.681
+},{"country":"SR",
+"score":5.603
+},{"country":"SL",
+"score":4.374
+},{"country":"SG",
+"score":6.2620000000000005
+},{"country":"SK",
+"score":6.1979999999999995
+},{"country":"SI",
+"score":6.117999999999999
+},{"country":"SO",
+"score":4.668
+},{"country":"ZA",
+"score":4.7219999999999995
+},{"country":"KR",
+"score":5.895
+},{"country":"SS",
+"score":2.853
+},{"country":"ES",
+"score":6.354
+},{"country":"LK",
+"score":4.3660000000000005
+},{"country":"SZ",
+"score":4.212
+},{"country":"SE",
+"score":7.343
+},{"country":"CH",
+"score":7.48
+},{"country":"SY",
+"score":3.4619999999999997
+},{"country":"TW",
+"score":6.446000000000001
+},{"country":"TJ",
+"score":5.4670000000000005
+},{"country":"TZ",
+"score":3.2310000000000003
+},{"country":"TH",
+"score":6.007999999999999
+},{"country":"TG",
+"score":4.085
+},{"country":"TT",
+"score":6.192
+},{"country":"TN",
+"score":4.461
+},{"country":"TR",
+"score":5.372999999999999
+},{"country":"TM",
+"score":5.247000000000001
+},{"country":"UG",
+"score":4.189
+},{"country":"UA",
+"score":4.332
+},{"country":"AE",
+"score":6.825
+},{"country":"GB",
+"score":7.053999999999999
+},{"country":"US",
+"score":6.892
+},{"country":"UY",
+"score":6.292999999999999
+},{"country":"UZ",
+"score":6.1739999999999995
+},{"country":"VE",
+"score":4.707
+},{"country":"VN",
+"score":5.175
+},{"country":"YE",
+"score":3.38
+},{"country":"ZM",
+"score":4.107
+},{"country":"ZW",
+"score":3.6630000000000003
+}];
+
+chart2.data = chart.data;
+// Create axes CHART 1
+
+var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "country";
+categoryAxis.renderer.grid.template.location = 0;
+categoryAxis.renderer.minGridDistance = 30;
+
+categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
+  if (target.dataItem && target.dataItem.index & 2 == 2) {
+    return dy + 25;
+  }
+  return dy;
+});
+
+var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+// Create series
+var series = chart.series.push(new am4charts.ColumnSeries());
+series.dataFields.valueY = "score";
+series.dataFields.categoryX = "country";
+series.name = "score";
+series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+series.columns.template.fillOpacity = .8;
+
+var columnTemplate = series.columns.template;
+columnTemplate.strokeWidth = 2;
+columnTemplate.strokeOpacity = 1;
+
+//CHART 2
+
+var pieSeries = chart2.series.push(new am4charts.PieSeries());
+pieSeries.dataFields.value = "score";
+pieSeries.dataFields.category = "country";
+pieSeries.slices.template.stroke = am4core.color("#fff");
+pieSeries.slices.template.strokeOpacity = 1;
+
+// This creates initial animation
+pieSeries.hiddenState.properties.opacity = 1;
+pieSeries.hiddenState.properties.endAngle = -90;
+pieSeries.hiddenState.properties.startAngle = -90;
+
+chart2.hiddenState.properties.radius = am4core.percent(0);
+}); // end am4core.ready()
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>
+
+<div id="chartdiv2"></div>
